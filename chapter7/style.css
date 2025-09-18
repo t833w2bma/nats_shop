@@ -1,0 +1,6 @@
+@charset "UTF-8";
+img {
+    width: 100%;
+}
+.product img{height: 206px;}
+.hidden{display: none;}
