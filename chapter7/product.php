@@ -1,5 +1,11 @@
-<?php require '../header.php'; ?>
-<?php require 'menu.php'; ?>
+<?php 
+// エラーを出力する
+ini_set('display_errors', "On");
+require '../connect.php'; 
+require '../header.php'; 
+require 'menu.php'; 
+?>
+
 <div class="container">
 	<form action="product.php" method="post">
 		商品検索
@@ -18,22 +24,17 @@ if(!empty($_REQUEST['page']) ){
 // ↑ テーブルを出すよりも先にやる
 echo '<div class="row">';
 
-$pdo=new PDO('mysql:host=localhost;dbname=shop;charset=utf8', 
-	'staff', 'password');
-
 
 if (isset($_REQUEST['keyword'])) {
 	$query = "SELECT * FROM product 
 	WHERE name LIKE ?
-	LIMIT $limit OFFSET $offset 
-	";
+	LIMIT $limit OFFSET $offset ";
 	$sql = $pdo->prepare($query);
 	$sql->execute(['%'.$_REQUEST['keyword'].'%']);
 
 } else {
 	$query = "SELECT * FROM product 
-	LIMIT $limit OFFSET $offset
-	";
+	LIMIT $limit OFFSET $offset";
 	$sql = $pdo->query($query);
 }
 foreach ($sql as $row) {

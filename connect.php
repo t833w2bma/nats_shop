@@ -1,4 +1,6 @@
 <?php
+
+// var_dump($_SERVER['HTTP_HOST']);
 //後からだと大変なので､各ファイルからrequireで読み込み
 if( $_SERVER['HTTP_HOST'] == 'localhost'){
   $host   = 'localhost';
@@ -8,8 +10,8 @@ if( $_SERVER['HTTP_HOST'] == 'localhost'){
   
 } else {
   $host   = 'localhost';
-  $dbname = 'xs619812_xss';  // xserverで変わる情報
-  $user   = 'xs619812_xss'; 
+  $dbname = 'ichiro';  // xserverで変わる情報
+  $user   = 'ichiro'; 
   $pswd   = 'wert3333'; 
 }
 
